@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <title>店铺分类</title>
+        <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/selectClass.css" />
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <div class="wrapper" v-if="showContent">
+                <ul v-if="classList.length > 0">
+                  <li v-for="item in classList" :key="item.id" @click="bindSelect(item.id, item.name)">
+                    <div class="left">
+                      {{item.name}}
+                    </div>
+                    <img src="img/right.png" alt="右箭头">
+                  </li>
+                </ul>
+                <p v-else class="none-data">暂时还没有分类哦！</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+        <script type="text/javascript" src="js/selectClass.js"></script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <title>城市列表</title>
+        <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/selectCity.css" />
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <div class="wrapper" v-if="showContent">
+              <div class="search">
+                <img src="img/search.png" alt="搜索">
+                <input type="text" @input="bindSearch" v-model.trim="val" placeholder="请输入店铺所在城市" >
+              </div>
+              <ul v-if="!showSearch">
+                <li v-for="(item, index) in cityList" :key="index">
+                  <h3 :id="item.name">{{item.name}}</h3>
+                  <ol>
+                    <li v-for="cityItem in item.city" :key="cityItem.id" @click="bindSelect(cityItem.cityName, cityItem.name)">
+                      {{cityItem.cityName}}
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+              <ul v-else>
+                <ol>
+                  <li v-for="cityItem in searchList" :key="cityItem.id" @click="bindSelect(cityItem.cityName, cityItem.name)">
+                    {{cityItem.cityName}}
+                  </li>
+                </ol>
+              </ul>
+              <div class="english">
+                <template v-for="(item, index) in englishList">
+                  <a href="javascript:;" :key="item" :class="{'active' : current === index}" @click="bindA(index, item)">{{item}}</a>
+                </template>
+              </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+        <script type="text/javascript" src="js/selectCity.js"></script>
+	</body>
+</html>

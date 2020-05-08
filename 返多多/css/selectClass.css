@@ -1,0 +1,38 @@
+body {
+  background: #f5f5f5;
+}
+
+ul li {
+  background: #fff;
+  font-size: 1rem;
+  color: #666;
+  line-height: 3.5rem;
+  padding: 0 .9rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+ul li:active {
+  background: #eee;
+}
+
+ul li .left {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+ul li img {
+  width: .5rem;
+  margin-left: auto;
+}
+
+.none-data {
+  font-size: 1rem;
+  color: #999;
+  text-align: center;
+  line-height: 10rem;
+}

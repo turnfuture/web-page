@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <title>店铺申请</title>
+        <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/addShop.css" />
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <div class="wrapper">
+                <form id="shopSub" @submit.prevent="submit">
+                    <ul>
+                    	<li>
+                            <h3><span>*</span>店铺头像</h3>
+                            <div class="li-detail">
+                                <div class="upload">
+                                    <img :src="subFormData.img" >
+                                    <input type="file" @change="upload('img', $event)" accept="image/*" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>上传封面图</h3>
+                            <div class="li-detail li-detail-one">
+                                <div class="upload upload-one">
+                                    <img :src="subFormData.logo" >
+                                    <input type="file" @change="upload('logo', $event)" accept="image/*" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺名称</h3>
+                            <div class="li-detail-input">
+                                <input type="text" placeholder="请输入名称" v-model="subFormData.shopName">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>联系人</h3>
+                            <div class="li-detail-input">
+                                <input type="text" placeholder="请输入联系人姓名" v-model="subFormData.name">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>联系方式</h3>
+                            <div class="li-detail-input">
+                                <input type="text" placeholder="请输入手机号" v-model="subFormData.phone">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>客服电话</h3>
+                            <div class="li-detail-input">
+                                <input type="text" placeholder="请输入店铺客服电话" v-model="subFormData.serverPhone">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺资质材料</h3>
+                            <div class="li-detail">
+                                <div class="upload" v-for="(item, index) in businessLicenses" :key="index" @click="deleteImg(index)">
+                                    <i class="delete-img">X</i>
+                                    <img :src="item">
+                                </div>
+                                <div class="upload" v-if="businessLicenses.length < 5">
+                                    <img src="img/addImg2.png">
+                                    <input type="file" @change="upload('businessLicense', $event)" accept="image/*" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺分类</h3>
+                            <div class="li-detail li-detail-other" @click="selectClass">
+                                <div class="left">
+                                    {{subFormData.className}}
+                                </div>
+                                <div class="right">
+                                    <span>请选择</span>
+                                    <img src="img/right.png" alt="右箭头">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺营业时间</h3>
+                            <div class="li-detail li-detail-other" @click="openPicker">
+                                <div class="left">
+                                    {{subFormData.time}}
+                                </div>
+                                <div class="right">
+                                    <span>请选择</span>
+                                    <img src="img/right.png" alt="右箭头">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺所在地区</h3>
+                            <div class="li-detail li-detail-other" @click="selectCity">
+                                <div class="left">
+                                    {{showName}}
+                                </div>
+                                <div class="right">
+                                    <span>请选择</span>
+                                    <img src="img/right.png" alt="右箭头">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺位置</h3>
+                            <div class="li-detail li-detail-other" @click="selectAddress">
+                                <div class="left">
+                                    {{subFormData.address}}
+                                </div>
+                                <div class="right">
+                                    <span>请选择</span>
+                                    <img src="img/right.png" alt="右箭头">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>添加账号</h3>
+                            <div class="li-detail-input">
+                                <input type="tel" placeholder="请输入店铺登录账号" v-model="subFormData.userName">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>设置账号密码</h3>
+                            <div class="li-detail-input">
+                                <input type="password" placeholder="请输入店铺登录密码" v-model="subFormData.password">
+                            </div>
+                        </li>
+                        <li>
+                            <h3><span>*</span>店铺返佣比例</h3>
+                            <div class="li-detail-input">
+                                <input type="text" readonly="readonly" placeholder="请输入店铺登录密码" v-model="subFormData.rebate">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="submit">
+                        <button type="submit">确认</button>
+                    </div>
+                </form>
+                <mt-datetime-picker
+                v-model="pickerVisible"
+                ref="picker"
+                type="time"
+                @confirm="handleConfirm">
+                </mt-datetime-picker>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+        <script type="text/javascript" src="js/addShop.js"></script>
+	</body>
+</html>

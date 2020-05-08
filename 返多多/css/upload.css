@@ -1,0 +1,81 @@
+html, body, #app, .wrapper {
+	height: 100%;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.wrapper .img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrapper .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.upload {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.upload a {
+    font-size: .9rem;
+    color: #fff;
+    width: 8rem;
+    line-height: 2.5rem;
+    background: #E45E32;
+    display: inline-block;
+    text-align: center;
+    margin-right: 2rem;
+}
+
+.uploadShop a {
+    background: #2F69FB;
+}
+
+.upload a:last-child {
+    margin-right: 0;
+}
+
+.upload a img {
+    width: 1rem;
+    vertical-align: text-top;
+    margin-right: .5rem;
+}
+
+/* 遮罩层 */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.goods_mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 98;
+  height: 100%;
+  background: rgba(255, 255, 255, 1);
+}
+
+.goods_mask_black img {
+  width: 100%;
+  height: 110%;
+  margin-top: -25px;
+}

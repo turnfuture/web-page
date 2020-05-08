@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>下载APP</title>
+        <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/upload.css" />
+	</head>
+	<body>
+        <div id="app" v-cloak>
+        	<div class="wrapper">
+                <div class="img" :style="maxImgHeight"><img src="img/upload.png" alt="宣传图" ></div>
+                <div class="upload">
+                    <a href="javascript:;">
+                        <img src="img/android.png" alt="安卓下载">
+                        安卓下载
+                    </a>
+                    <a href="javascript:;">
+                        <img src="img/ios.png" alt="iOS下载">
+                        iOS下载
+                     </a>
+                </div>
+            </div>
+            <transition name="fade">
+                <div class="goods_mask goods_mask_black" v-if='wechatHidden' @click='closeWechat'>
+                  <img src="img/share.png" alt="点击右上角分享好友">
+                </div>
+            </transition>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+        <script type="text/javascript" src="js/upload.js"></script>
+	</body>
+</html>

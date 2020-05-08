@@ -1,0 +1,173 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+body,
+html {
+	background: #F8F8F8;
+}
+#pullRefresh {
+	touch-action: none;
+}
+.head {
+	height: 50px;
+	background-color: #fff;
+	line-height: 50px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	z-index: 11;
+}
+
+.head h1 {
+	width: 100%;
+	line-height: 50px;
+}
+
+.head .icon-arrow-left {
+	color: #000000;
+	font-size: 26px;
+	margin-left: 10px;
+}
+.tab {
+	top: 50px;
+}
+.tab .tab_top {
+	/* display: flex;
+	justify-content: space-around;
+	align-items: center; */
+	overflow: hidden;
+	text-align: center;	
+	border-bottom: 1px solid #CBCBCB;
+}
+.tab .tab_top li {
+	padding: 15px 0;
+	float: left;
+	width: 33.3%;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+.tab .tab_top .cur {
+	border-bottom: 2px solid #69B6DB;
+	color: #69B6DB;
+}
+.tab .tab_bottom .nothing {
+	margin: 150px auto;
+	text-align: center;
+	color: #999999;
+	font-size: 16px;
+}
+.tab .tab_bottom .show {
+	display: block;
+}
+.tab_bottom li .orders {
+	background-color: #fff;
+	margin: 10px 0;
+}
+.orders .top {
+	height: 40px;
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	padding: 0 10px;
+	box-sizing: border-box;
+	justify-content: space-between;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	color: #5C5C5C;
+}
+.orders .bottom {
+	display: flex;
+	overflow: hidden;
+	height: 100px;
+	align-items: center;
+    position: relative;
+}
+.orders .bottom .lift {
+	width: 80px;
+	height: 80px;
+	background-color: #eee;
+	flex-shrink: 0;
+	margin-left: 10px;
+}
+.orders .bottom .lift img {
+	width: 80px;
+	height: 80px;
+}
+.orders .bottom .right {
+	flex-grow: 1;
+	margin-left: 10px;
+
+}
+.orders .bottom .right p {
+	color: #5C5C5C;
+	font-size: 14px;
+	padding: 2px;
+	box-sizing: border-box;
+}
+
+/* 查看详情 */
+.orders .bottom button {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: #999;
+}
+
+.orders .bottom button:active {
+    color: #fff;
+}
+
+/* // 上下箭头 */
+.down-arrow {
+    width: 10px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+.down-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 8px;
+    width: 8px;
+    border-width: 0 2px 2px 0;
+    border-color: #c7c7cc;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform-origin: center;
+    transition: transform .3s;
+    position: relative;
+    top: -3px;
+}
+
+/* // 加上active旋转成 上箭头 */
+.down-arrow.active::after {
+    transform-origin: center;
+    transform: rotate(-135deg);
+    transition: transform .3s;
+		top: 3px;
+}
+
+.order-details {
+    padding: 10px;
+    background: #ddd;
+    border-top: 1px solid #eee;
+    display: none;
+}
+
+.order-details h3, .order-details p {
+    font-size: 14px;
+}
+
+.order-details img {
+    width: 72px;
+    height: 72px;
+}

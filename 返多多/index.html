@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>助力</title>
+		<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<div class="wrapper">
+				<template v-if="showContent">
+					<div class="g-goodsDetails">
+					<div class="goods">
+						<div class="g-pic">
+							<img :src="details.shopImg">
+						</div>
+						<div class="g-main">
+							<h3>{{details.shopName}}</h3>
+							<p>下单时间：{{details.createAt}}</p>
+							<p class="ordersn">订单号：{{details.orderSn}}</p>
+							<!-- <p class="price">￥<span>{{details.allPrice}}</span></p> -->
+						</div>
+					</div>
+					<div class="business">
+						<p v-if="showZhuli">好友邀请您助力</p>
+						<p v-else>您已助力成功，好友获取奖励</p>
+					</div>
+					<div class="lsl-btn">
+						<button type="button" class="zhuli" @click="bindZhuli">去助力</button>
+					</div>
+				</div>
+					<div class="g-shareNum">
+						<div class="title">
+							助力详情
+							<span>（已成功邀请{{details.clickNum}}位）</span>
+						</div>
+						<ul class="peo-list">
+							<template v-if="details.clickNum > 0">
+								<li v-for="item in details.clickList">
+									<img :src="item.avator" >
+									<span>{{item.name}}</span>
+								</li>
+							</template>
+							<template v-else>
+								<p>还没有助力哦！</p>
+							</template>
+						</ul>
+					</div>
+				</template>
+				<template v-if="errorContent">
+					<div class="none-data">
+						<h3>没有该订单，请重新确认！</h3>
+					</div>
+				</template>
+			</div>
+			<article class="mask" v-if="showSuccess">
+				<div class="mask-success">
+					<p class="suc">助力成功</p>
+					<p class="text">恭喜您，已助力成功！！</p>
+					<button type="button" class="comfirm" @click="cancel">确认</button>
+				</div>
+			</article>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	</body>
+</html>

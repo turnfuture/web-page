@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>家庭情况测评表(初中版)</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="css/public.min.css">
+</head>
+<body>
+  <div id="app" v-cloak>
+    <div id="printhtml">
+      <header>
+        <h2>家庭情况测评表(初中版)</h2>
+      </header>
+      <ul class="table-list">
+        <li>
+          <div class="title">
+            <span>
+              一、
+            </span>
+          </div>
+          <table class="no-border-bottom">
+            <tbody>
+              <tr>
+                <td class="wd120">您的姓名</td>
+                <td class="wd120">{{ studentReviewDO.za }}</td>
+                <td class="wd120">学历</td>
+                <td class="wd180" colspan="2">{{ studentReviewDO.zb }}</td>
+                <td class="wd150">您是</td>
+                <td class="no-border">
+                  <el-checkbox-group v-model="studentReviewDO.zc" class="selected inli">
+                    <el-checkbox label="爸爸" disabled></el-checkbox>
+                    <el-checkbox label="妈妈" disabled></el-checkbox>
+                    <el-checkbox label="其他" disabled></el-checkbox>
+                  </el-checkbox-group>
+                </td>
+              </tr>
+              <tr>
+                <td>工作单位</td>
+                <td>{{ studentReviewDO.zd }}</td>
+                <td>职务</td>
+                <td colspan="2">{{ studentReviewDO.ze }}</td>
+                <td>您来自那个指导站的那个群</td>
+                <td class="no-border">{{ studentReviewDO.zf }}</td>
+              </tr>
+              <tr>
+                <td>孩子姓名</td>
+                <td>{{ studentReviewDO.zg }}</td>
+                <td>性别</td>
+                <td colspan="2">
+                  <el-checkbox-group v-model="studentReviewDO.zg" class="selected">
+                    <el-checkbox label="0" disabled>男</el-checkbox>
+                    <el-checkbox label="1" disabled>女</el-checkbox>
+                  </el-checkbox-group>
+                </td>
+                <td>出生年月</td>
+                <td class="no-border">{{ studentReviewDO.zi }} - {{ studentReviewDO.zj }}</td>
+              </tr>
+              <tr>
+                <td>所在学校</td>
+                <td colspan="2">{{ studentReviewDO.zk }}</td>
+                <td>年级</td>
+                <td class="wd80">{{ studentReviewDO.zl }}</td>
+                <td>性格</td>
+                <td class="no-border">
+                  <el-checkbox-group v-model="studentReviewDO.zm" class="selected inli">
+                    <el-checkbox label="0" disabled>内向</el-checkbox>
+                    <el-checkbox label="1" disabled>外向</el-checkbox>
+                  </el-checkbox-group>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="no-border-bottom">
+            <tbody>
+              <tr>
+                <td class="wd120">学习情况</td>
+                <td colspan="3">
+                  <el-checkbox-group v-model="studentReviewDO.zn" class="selected">
+                    <el-checkbox label="0" disabled>很好</el-checkbox>
+                    <el-checkbox label="1" disabled>好</el-checkbox>
+                    <el-checkbox label="2" disabled>一般</el-checkbox>
+                    <el-checkbox label="3" disabled>差</el-checkbox>
+                    <el-checkbox label="4" disabled>很差</el-checkbox>
+                  </el-checkbox-group>
+                </td>
+                <td class="wd120">偏科</td>
+                <td class="wd150">
+                  <el-checkbox-group v-model="studentReviewDO.zo" class="selected">
+                    <el-checkbox label="0" disabled>是</el-checkbox>
+                    <el-checkbox label="1" disabled>否</el-checkbox>
+                  </el-checkbox-group>
+                </td>
+                <td class="wd120">班级名次</td>
+                <td class="wd120 no-border">{{ studentReviewDO.zp }}</td>
+              </tr>
+            </tbody>
+          </table class="no-border-bottom">
+          <table>
+            <tbody>
+              <tr>
+                <td class="wd180" rowspan="4">为了您获得更好更贴心的服务，请您清晰的留下您联系方式</td>
+                <td colspan="2">手机号码</td>
+                <td class="wd300">{{ studentReviewDO.zq }}</td>
+              </tr>
+              <tr>
+                <td colspan="2">微信号码</td>
+                <td>{{ studentReviewDO.zr }}</td>
+              </tr>
+              <tr>
+                <td colspan="2">QQ号码</td>
+                <td>{{ studentReviewDO.zs }}</td>
+              </tr>
+              <tr>
+                <td colspan="2">E-Mail</td>
+                <td>{{ studentReviewDO.zt }}</td>
+              </tr>
+              <tr>
+                <td rowspan="3">请您写下3个急需解决孩子的问题，我们会安排专人为您解答</td>
+                <td class="wd50">1</td>
+                <td colspan="2">{{ studentReviewDO.zu }}</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td colspan="2">{{ studentReviewDO.zv }}</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td colspan="2">{{ studentReviewDO.zw }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div class="title">
+            <span>
+              二、
+            </span>
+          </div>
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>项目</th>
+                <th>很好</th>
+                <th>不错</th>
+                <th>一般</th>
+                <th>较差</th>
+                <th>很差</th>
+                <th rowspan="2">请用一句话说明理由</th>
+              </tr>
+              <template v-for="(item, index) in tableList">
+                <template v-if="index < 4">
+                  <tr>
+                    <td rowspan="2">{{ index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td class="wd80"><strong v-if="0 === studentReviewDO[item.property]">✔</strong></td>
+                    <td class="wd80"><strong v-if="1 === studentReviewDO[item.property]">✔</strong></td>
+                    <td class="wd80"><strong v-if="2 === studentReviewDO[item.property]">✔</strong></td>
+                    <td class="wd80"><strong v-if="3 === studentReviewDO[item.property]">✔</strong></td>
+                    <td class="wd80"><strong v-if="4 === studentReviewDO[item.property]">✔</strong></td>
+                    <td v-if="index !== 0">一句话理由</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7" style="height: 35px;">
+                      <template v-if="index === 0">{{ studentReviewDO.yf }}</template>
+                      <template v-if="index === 1">{{ studentReviewDO.yh }}</template>
+                      <template v-if="index === 2">{{ studentReviewDO.yj }}</template>
+                      <template v-if="index === 3">{{ studentReviewDO.yl }}</template>
+                    </td>
+                  </tr>
+                </template>
+                <template v-else>
+                  <tr>
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td colspan="6" v-if="index === 9" class="tdbold">
+                      <span>
+                        最喜欢的人（
+                        <strong>{{ studentReviewDO.yr }}</strong>
+                        ）最讨厌的人（
+                        <strong>{{ studentReviewDO.ys }}</strong>
+                        ）
+                      </span>
+                    </td>
+                    <td colspan="6" v-else-if="index === 10" class="tdbold">
+                      <el-checkbox-group v-model="studentReviewDO.yt" class="selected">
+                        <el-checkbox label="0" disabled>非常快乐</el-checkbox>
+                        <el-checkbox label="1" disabled>快乐</el-checkbox>
+                        <el-checkbox label="2" disabled>一般</el-checkbox>
+                        <el-checkbox label="3" disabled>不快乐</el-checkbox>
+                        <el-checkbox label="4" disabled>很不快乐</el-checkbox>
+                      </el-checkbox-group>
+                    </td>
+                    <td colspan="6" v-else-if="index === 11 || index === 12" style="height: 100px;">{{ studentReviewDO[item.property] }}</td>
+                    <td colspan="6" v-else>{{ studentReviewDO[item.property] }}</td>
+                  </tr>
+                </template>
+              </template>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div class="title">
+            <span>
+              三、
+            </span>
+          </div>
+          <table>
+            <tbody>
+              <tr>
+                <th></th>
+                <th>项目</th>
+                <th colspan="5">
+                  为了更好帮助孩子，请您客观填写并在所选项目上打“✔”
+                </th>
+              </tr>
+              <template v-for="(item, index) in table2List">
+                <tr :key="index">
+                  <td>{{ index + 1 }}</td>
+                  <td>{{ item.name }}</td>
+                  <template v-if="index === 0 || index === 5 || index === 15 || index === 17 || index === 20 || index === 21 || index === 41 || index === 44 || index >= 31 && index <= 33">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[0]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 1">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[1]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 2">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[2]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 3 || index === 24">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[3]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 4 || index === 6 || index === 7 || index === 18 || index === 27 || index === 29 || index === 40 || index === 42">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[4]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 8">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[5]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 9">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[6]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 10">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[7]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 11">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[8]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 12 || index === 13 || index === 23 || index === 28 || index === 38 || index === 39 || index === 43">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[9]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 14 || index === 16">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[10]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 19">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[11]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 22">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[12]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 25">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[13]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 26">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[14]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index === 30">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[15]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                  <template v-else-if="index >= 34 && index <= 37">
+                    <td v-for="(ratyItem, ratyindex) in ratyList[16]" :key="'raty' + ratyindex">
+                      {{ ratyItem }}
+                      <strong v-if="ratyindex === studentReviewDO[item.property]">✔</strong>
+                    </td>
+                  </template>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <div class="title">
+            <span>
+              四、测评结果
+            </span>
+          </div>
+          <div class="textarea">
+            <el-input v-model="studentReviewResultDO.content" type="textarea" rows="8"></el-input v-model="studentReviewResultDO.content">
+          </div>
+          <div class="btn">
+            <el-button size="small" type="primary">提交</el-button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <el-button type="primary" id="print" onclick="handlePrint()">打印</el-button>
+  </div>
+</body>
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+  <script src="js/jquery.jqprint-0.3.js"></script>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="js/middle.js"></script>
+</html>

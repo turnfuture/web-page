@@ -1,0 +1,193 @@
+$color: #2b3e50;
+$border-color: 1px solid $color;
+* {
+  color: $color;
+}
+
+body {
+  font-size: 14px;
+
+}
+
+#app {
+  width: 1099px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1098px) {
+  #app {
+    width: 880px;
+  }
+}
+
+@media screen and (max-width: 879px) {
+  #app {
+    width: 100%;
+  }
+}
+
+header {
+  text-align: center;
+}
+
+// 清楚element-ui多选框禁用默认样式
+.el-checkbox {
+  color: $color;
+}
+.el-checkbox__input.is-disabled+span.el-checkbox__label {
+  cursor: pointer;
+  color: $color;
+}
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+  background-color: transparent;
+  border-color: $color;
+}
+
+.el-checkbox__input.is-disabled .el-checkbox__inner {
+  background-color: transparent;
+  border-color: $color;
+  cursor: pointer;
+}
+
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+  border-color: #000;
+  cursor: pointer;
+}
+
+/* 头部样式 */
+.table-list {
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+
+  .title {
+    display: flex;
+    font-weight: bold;
+    margin: 20px 0;
+
+    span {
+      font-size: 16px;
+      flex-grow: 1;
+
+      strong {
+        display: inline-block;
+        width: 70px;
+        text-align: center;
+      }
+
+      .selected {
+        padding-left: 10px;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* 表格 */
+table {
+  width: 100%;
+  border: $border-color;
+  border-collapse: collapse;
+
+  &.no-border-bottom {
+    border-bottom: 0;
+  }
+
+  tr {
+    &:last-child {
+      td, th {
+        border-bottom: 0;
+      }
+    }
+
+    &.no-border-tr {
+      td, th {
+        &:nth-child(1), &:nth-child(2) {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  td, th {
+    border-right: $border-color;
+    border-bottom: $border-color;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+    &.wd300 {
+      width: 300px;
+    }
+
+    &.wd50 {
+      width: 50px;
+    }
+
+    &.wd80 {
+      width: 80px;
+    }
+
+    &.wd120 {
+      width: 120px;
+    }
+
+    &.wd180 {
+      width: 180px;
+    }
+
+    &.no-border {
+      border-right: 0;
+    }
+
+    strong {
+      padding-left: 10px;
+    }
+
+    &.tdbold {
+      strong {
+        display: inline-block;
+        width: 80px;
+      }
+    }
+
+    .inli {
+      display: inline-block;
+    }
+
+    em {
+      font-style: normal;
+      width: 120px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      display: inline-block;
+      border-bottom: $border-color;
+    }
+  }
+}
+
+#print {
+  position: fixed;
+  right: 0;
+  bottom: 120px;
+  
+  span {
+    color: #fff;
+  }
+}
+
+.btn {
+  text-align: right;
+  padding: 20px 0 10px;
+
+  button {
+    background-color: #9eea6a;
+    border-color: #9eea6a;
+
+    span {
+      color: #fff;
+    }
+  }
+}

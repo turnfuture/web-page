@@ -1,0 +1,123 @@
+body {
+    background: #f5f5f5;
+}
+
+h3 {
+    font-size: .9rem;
+    line-height: 3em;
+    padding: 0 .8em;
+}
+
+h3 span {
+    color: #CE1212;
+    margin-right: .3rem;
+}
+
+.li-detail {
+    background: #fff;
+    padding: .7rem .8rem;
+}
+
+.li-detail-input {
+    padding: 0 .8rem;
+    background: #fff;
+    height: 3rem;
+}
+
+.li-detail-input input {
+    width: 100%;
+    height: 100%;
+}
+
+.li-detail-one {
+    padding: 0;
+    margin: 0 10px;
+    background: transparent;
+}
+
+.li-detail .upload {
+    width: 5rem;
+    height: 4.5rem;
+    position: relative;
+    display: inline-block;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+}
+
+.li-detail .upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.li-detail .upload img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.li-detail .upload .delete-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1rem;
+    color: #fff;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #666;
+    text-align: center;
+}
+
+.li-detail .upload-one {
+    width: 100%;
+    height: 8rem;
+}
+
+.li-detail .upload-one img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.li-detail-other {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0 .8rem;
+    height: 3rem;
+}
+
+.li-detail-other .left {
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+    overflow: hidden;
+    flex: 1;
+}
+
+.li-detail-other .right {
+    margin-left: auto;
+    line-height: 3rem;
+    color: #999;
+}
+
+.li-detail-other .right img {
+    width: .5rem;
+    vertical-align: middle;
+    margin-left: .5rem;
+}
+
+.submit button {
+    font-size: .9rem;
+    color: #fff;
+    width: 12rem;
+    height: 2.5rem;
+    border: 0;
+    background: #E45E32;
+    margin: 2rem auto;
+    display: table;
+    border-radius: 1.25rem;
+}

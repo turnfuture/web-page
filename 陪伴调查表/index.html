@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>聊天</title>
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<link rel="stylesheet" href="css/amazeui.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+	.el-loading-mask {
+		background: transparent;
+	}
+</style>
+</head>
+<body>
+<div class="box" id="app">
+	<div class="wechat">
+		<!--聊天窗口-->
+		<div class="talk_window">
+			<div class="windows_top">
+				<div class="windows_top_box">
+					<span>{{ recordList[0].userName || '' }}</span>
+				</div>
+			</div>
+			
+			<!--聊天内容-->
+			<div class="windows_body">
+				<div class="office_text" style="height: 100%;overflow-y: scroll;">
+					<ul class="content" id="chatbox">
+						<div v-if="loading" v-loading="loading" style="height: 50px;"></div>
+						<template v-for="item in recordList">
+							<li v-if="item.type === 0" class="other" :key="item.id">
+								<img :src="item.avator" :title="item.userName">
+								<span>{{ item.content }}</span>
+							</li>
+							<li v-else class="me" :key="item.id">
+								<img :src="item.avator" :title="item.userName">
+								<span>{{ item.content }}</span>
+							</li>
+						</template>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="windows_input" id="talkbox">
+				<div class="input_icon">
+				</div>
+				<div class="input_box">
+					<textarea v-model="content" name="" rows="" cols="" id="input_box"></textarea>
+					<button id="send" @click="handleSend">发送（S）</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/amazeui.min.js"></script>
+<script type="text/javascript" src="js/zUI.js"></script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="text/javascript" src="js/wechat.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
